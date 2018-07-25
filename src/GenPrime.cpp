@@ -140,16 +140,21 @@ void CPrimeSines::makelist(long long upperlimit)
 	if(m_maxAllowedPrimes == 2) return;
 
 	long long start_digit = m_prime[m_maxvalidprimes-1] + 2;	// first start_digit=5
-	long long end_digit = start_digit * start_digit;		// first end_digit=25
 	while(1) {
+		// first end_digit=25
+		long long end_digit = (m_prime[m_maxvalidprimes-1] + 2)*(m_prime[m_maxvalidprimes-1] + 2);
 		if(end_digit > upperlimit) {
 			end_digit = upperlimit;
 		}
+		long long current_valid_primes = m_maxvalidprimes;
 		for(long long ii = start_digit; ii < end_digit; ii += 2) {
 			long long mod;
-			for(long long ip = 1; ip <m_maxvalidprimes; ip++) {	// skip 2
+			for(long long ip = 1; ip <current_valid_primes; ip++) {	// skip 2
 				mod = ii % m_prime[ip];
 				if(mod == 0) {
+					break;
+				}
+				if(m_prime[ip]*m_prime[ip] > ii) {
 					break;
 				}
 			}
@@ -164,11 +169,8 @@ void CPrimeSines::makelist(long long upperlimit)
 				}
 			}
 		}
-		if(end_digit >= upperlimit) return;
-		start_digit = m_prime[m_maxvalidprimes-1]+2;
-		end_digit = start_digit*start_digit;
-		//std::cout << "m:Number of primes " << m_maxvalidprime << std::endl;
-		//std::cout << "m:Max prime " << m_prime[m_maxvalidprime-1] << std:: endl;
+		if(end_digit >= upperlimit) break;
+		start_digit = end_digit;
 	}
 }
 
