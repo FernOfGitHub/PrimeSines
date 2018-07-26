@@ -64,6 +64,7 @@ void CPrimes::makelist(long long upperlimit)
 	long long ssize = upperlimit/2;	// odd numbers only
 	long long i, ii, j;
 
+	m_prime[0] = 2;
 	s = (unsigned char *)malloc (ssize);
 	memset (s, ~0, ssize);
 	for (i = 3; ; i += 2)
@@ -78,7 +79,7 @@ void CPrimes::makelist(long long upperlimit)
 			s[ii] = 0;
 		}
 	}
-	long long n_primes = 0;
+	long long n_primes = 1;
 	for (j = 0; j < ssize; j++)
 	{
 		if (s[j] != 0)
