@@ -14,12 +14,12 @@
 
 int main() {
 	std::cout << "Calculate Primes" << std::endl;
-	CPrimes primes(ONE_MILLION);
+	CPrimes primes(4LL*ONE_MILLION);
 
     std::clock_t c_start = std::clock();
     auto t_start = std::chrono::high_resolution_clock::now();
 
-    primes.makelist(20LL*ONE_MILLION);
+    primes.makelist(50LL*ONE_MILLION);
 
     std::clock_t c_end = std::clock();
     auto t_end = std::chrono::high_resolution_clock::now();
@@ -33,11 +33,11 @@ int main() {
     primes.print();
 
 	std::cout << "Mod Primes" << std::endl;
-	CPrimeSines sineprime(ONE_MILLION);
+	CPrimeSines sineprime(4LL*ONE_MILLION);
     c_start = std::clock();
     t_start = std::chrono::high_resolution_clock::now();
 
-	sineprime.makelist(20LL*ONE_MILLION);
+	sineprime.makelist(50LL*ONE_MILLION);
 
     c_end = std::clock();
     t_end = std::chrono::high_resolution_clock::now();

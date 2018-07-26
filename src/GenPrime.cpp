@@ -162,9 +162,9 @@ void CPrimeSines::makelist(long long upperlimit)
 			if(mod != 0) {
 				m_prime[m_maxvalidprimes] = ii;
 				m_maxvalidprimes++;
-				if(m_maxvalidprimes % 100000 == 0) {
-					std::cout << " found " << m_maxvalidprimes << std::endl;
-				}
+				//if(m_maxvalidprimes % 100000 == 0) {
+				//	std::cout << " found " << m_maxvalidprimes << std::endl;
+				//}
 				if(m_maxvalidprimes >= m_maxAllowedPrimes) {
 					return;
 				}
